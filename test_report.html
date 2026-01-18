@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intune Deployment Report</title>
+    <style>
+        :root {
+            --primary: #0078d4;
+            --success: #107c10;
+            --error: #d13438;
+            --warning: #ff8c00;
+            --bg-dark: #1e1e1e;
+            --bg-card: #252526;
+            --text: #cccccc;
+            --text-bright: #ffffff;
+            --border: #3c3c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #2d2d30 100%);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            color: var(--text-bright);
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--text-bright);
+        }
+        
+        .stat-label {
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+        .stat-card.success .stat-value { color: var(--success); }
+        .stat-card.error .stat-value { color: var(--error); }
+        .stat-card.primary .stat-value { color: var(--primary); }
+        
+        .table-container {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        th {
+            background: rgba(0,120,212,0.1);
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:hover {
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-success {
+            background: rgba(16,124,16,0.2);
+            color: var(--success);
+        }
+        
+        .status-failed {
+            background: rgba(209,52,56,0.2);
+            color: var(--error);
+        }
+        
+        .status-pending {
+            background: rgba(255,140,0,0.2);
+            color: var(--warning);
+        }
+        
+        .app-id {
+            font-family: 'Consolas', monospace;
+            font-size: 0.8rem;
+            color: var(--text);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text);
+        }
+        
+        .empty-state h3 {
+            color: var(--text-bright);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Intune Deployment Report</h1>
+            <p class="subtitle">Generated on 2026-01-18 20:32:22</p>
+        </header>
+        
+        <div class="stats-grid">
+            <div class="stat-card primary">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Total Deployments</div>
+            </div>
+            <div class="stat-card success">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Successful</div>
+            </div>
+            <div class="stat-card error">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Failed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0s</div>
+                <div class="stat-label">Avg Upload Time</div>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            
+            <div class="empty-state">
+                <h3>No Deployments Yet</h3>
+                <p>Run the packager to see deployment records here.</p>
+            </div>
+            
+        </div>
+        
+        <footer>
+            <p>Intune Packager &copy; 2026 | Enterprise Software Packaging Automation</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# Azure AD Configuration
+azure:
+  tenant_id: "YOUR_TENANT_ID"
+  client_id: "YOUR_CLIENT_ID"
+  client_secret: "YOUR_CLIENT_SECRET"
+
+# Intune Configuration
+intune:
+  graph_endpoint: "https://graph.microsoft.com/beta"
+  scope: "https://graph.microsoft.com/.default"
+
+# Packaging Configuration
+packaging:
+  output_dir: "./output"
+  intune_win_util_path: "./tools/IntuneWinAppUtil.exe"
+  auto_download_util: true
+
+# Default App Settings
+app_defaults:
+  publisher: "IT Department"
+  install_experience: "system"  # system or user
+  restart_behavior: "suppress"  # allow, basedOnReturnCode, suppress, force
+
+# Reporting
+reporting:
+  output_dir: "./reports"
+  template_dir: "./templates"
+  history_file: "./deployment_history.json"
